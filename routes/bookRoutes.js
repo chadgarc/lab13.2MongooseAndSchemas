@@ -26,7 +26,8 @@ router.get("/:id", async (req, res) => {
         if (!book) return res.status(404).json({ message: "Cannot find book" });
         res.json(book);
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        console.error(err);
+        res.status(400).json({ message: "Invalid id" });
     }
 });
 
